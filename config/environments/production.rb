@@ -36,8 +36,8 @@ Rails.application.configure do
   config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
- 
-  config.action_mailer.default_url_options = { host: 'https://achieve1129.herokuapp.com/blogs'}
+
+  config.action_mailer.default_url_options = { host: 'https://achieve1129.herokuapp.com/'}
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
@@ -88,5 +88,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
 end
