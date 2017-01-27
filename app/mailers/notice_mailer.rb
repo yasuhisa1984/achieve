@@ -17,6 +17,6 @@ class NoticeMailer < ApplicationMailer
     @greeting = "Hi"
     @contact = contact
 
-    mail to: "penmouse275@gmail.com"
+    mail to: @contact.email
   end
 end
