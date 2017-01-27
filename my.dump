@@ -1,0 +1,215 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: blogs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE blogs (
+    id integer NOT NULL,
+    title character varying,
+    content text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: blogs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE blogs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blogs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE blogs_id_seq OWNED BY blogs.id;
+
+
+--
+-- Name: contacts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE contacts (
+    id integer NOT NULL,
+    name character varying,
+    email character varying,
+    content text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying NOT NULL
+);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY blogs ALTER COLUMN id SET DEFAULT nextval('blogs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq'::regclass);
+
+
+--
+-- Data for Name: blogs; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY blogs (id, title, content, created_at, updated_at) FROM stdin;
+2	こんにちは	こんばんは 元気	2017-01-04 06:17:10.894802	2017-01-04 07:29:26.80003
+3	あいうえお	かきくけこ	2017-01-04 07:47:09.630648	2017-01-04 07:47:09.630648
+5	ffdsd	sdfsdf	2017-01-06 09:23:26.273296	2017-01-06 09:23:26.273296
+4	asa	sdfds	2017-01-06 08:38:41.80244	2017-01-06 09:31:28.942769
+\.
+
+
+--
+-- Name: blogs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('blogs_id_seq', 5, true);
+
+
+--
+-- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY contacts (id, name, email, content, created_at, updated_at) FROM stdin;
+1	kokaji	yasuhisa@iii	ddddd	2017-01-03 01:20:25.83572	2017-01-03 01:20:25.83572
+2	星野	弦	恋ダンス	2017-01-03 01:23:01.471164	2017-01-03 01:23:01.471164
+3	星野	7q570kvz0f8qxjm@marketplace.amazon.de	無人島	2017-01-03 01:23:38.315596	2017-01-03 01:23:38.315596
+4	野呂浩良	noro@diveintocode.jp	ホゲフが	2017-01-03 06:52:38.373353	2017-01-03 06:52:38.373353
+5	ss	aaa	sdfasdfasdf	2017-01-04 11:00:10.231774	2017-01-04 11:00:10.231774
+6	fasd	faf	fasdf	2017-01-06 01:35:57.965498	2017-01-06 01:35:57.965498
+7	df	d	d	2017-01-06 09:43:48.344044	2017-01-06 09:43:48.344044
+8	asdasd	asdasd	asd	2017-01-06 09:46:01.344881	2017-01-06 09:46:01.344881
+9	sadf	ddt4nb38vpvjchd@marketplace.amazon.fr	fff	2017-01-06 09:49:15.622653	2017-01-06 09:49:15.622653
+10	asdf	sdfasdf	sdfsadf	2017-01-06 09:59:10.077476	2017-01-06 09:59:10.077476
+11	s	dd	sss	2017-01-09 02:57:31.74761	2017-01-09 02:57:31.74761
+12	泰久小鍛冶	7q570kvz0f8qxjm@marketplace.amazon.de	lll	2017-01-09 03:05:49.774476	2017-01-09 03:05:49.774476
+13	泰久小鍛冶	penmouse275@nifty.com	lll	2017-01-09 03:08:06.732734	2017-01-09 03:08:06.732734
+14	df	asf	sdfsaf	2017-01-09 03:13:56.976461	2017-01-09 03:13:56.976461
+15	asdfs	sdsdf	sdfdsf	2017-01-09 03:42:43.276968	2017-01-09 03:42:43.276968
+\.
+
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('contacts_id_seq', 15, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY schema_migrations (version) FROM stdin;
+20170101075722
+20170103004609
+\.
+
+
+--
+-- Name: blogs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY blogs
+    ADD CONSTRAINT blogs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY contacts
+    ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: -
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
