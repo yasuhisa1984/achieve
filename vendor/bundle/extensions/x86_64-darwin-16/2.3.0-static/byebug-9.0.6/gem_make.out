@@ -1,0 +1,19 @@
+current directory: /Users/penmouse275/workspace/achieve/vendor/bundle/gems/byebug-9.0.6/ext/byebug
+/Users/penmouse275/.rbenv/versions/2.3.0/bin/ruby -r ./siteconf20170204-41481-d4qo4g.rb extconf.rb 
+creating Makefile
+
+current directory: /Users/penmouse275/workspace/achieve/vendor/bundle/gems/byebug-9.0.6/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/penmouse275/workspace/achieve/vendor/bundle/gems/byebug-9.0.6/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/penmouse275/workspace/achieve/vendor/bundle/gems/byebug-9.0.6/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20170204-41481-1jvqk9l/byebug

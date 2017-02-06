@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :poems, only: [:index]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   if Rails.env.development?
