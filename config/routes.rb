@@ -23,6 +23,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :poems, only:[:index, :show] do
+    collection do
+      post :confirm
+    end
+  end
+
   root 'top#index'
 
 

@@ -1,4 +1,6 @@
 <%= @poems.each do |poem| %>
-  <%= poem.title %>
-  <%= poem.content %>
+  タイトル：<%= poem.title %><br>
+  コンテンツ：<%= poem.content %><br>
+  著者：<%= poem.auther %><br>
+  <%= link_to "詳細情報", poem_path(poem.id) %><br><br>
 <% end %>
