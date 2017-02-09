@@ -1,29 +1,23 @@
 Rails.application.routes.draw do
-
-  resources :poems, only: [:index]
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+  #get 'top/index'
 
+  #get 'contacts/new'
 
-  devise_for :users
-  get 'top/index'
-
-  resources :contacts, only:[:new, :create] do
+  #get 'contacts/create'
+  resources :contacts, only: [:new, :create] do
     collection do
       post :confirm
     end
   end
 
-  resources :blogs, only:[:index, :new, :create, :edit, :update, :destroy] do
-    collection do
-      post :confirm
-    end
-  end
-
-  resources :poems, only:[:index, :show] do
+  #get 'blogs' => 'blogs#index'
+  #resources :blogs
+  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
     collection do
       post :confirm
     end
@@ -31,8 +25,11 @@ Rails.application.routes.draw do
 
   root 'top#index'
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
-
+  resources :poems, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
