@@ -14,6 +14,8 @@
                email: email,
                password: password,
                password_confirmation: password,
+               uid: n + "uid"
+               provider: n + "uid_pro"
                )
 end
 

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
-  mount_uploader :avatar, AvatarUploader
+       :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
+  mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
   has_many :blogs
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
