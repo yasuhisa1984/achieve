@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
+
+  resources :relationships, only: [:create, :destroy]
   get 'comments/create'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -20,14 +26,16 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-
   root 'top#index'
+
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
   resources :poems, only: [:index, :show]
+  #フォロワーの設定
+  resources :users, only: [:index, :show]
 
 
 end
