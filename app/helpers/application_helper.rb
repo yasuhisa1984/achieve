@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def profile_img(user)
     return image_tag(user.avatar, alt: user.name, width: 48, hight: 48) if user.avatar?
 
