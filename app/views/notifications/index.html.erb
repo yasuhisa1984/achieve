@@ -6,11 +6,14 @@
       <%  if notification.read == true %>
       <span>
       <%= "既読" %>
-      <% else %>
-      <%= "未読" %>
-      <% end %>
       </span>
+      <% else %>
+      <span class="text-danger">
+      <%= "未読" %>
+      </span>
+      <% end %>
       <p>
+        <%= profile_img(notification.comment.user) if profile_img(notification.comment.user) %>
         <%= notification.comment.user.try(:name) %>さんが
         あなたのブログ（<%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id) %>）にコメントしました。
       </p>
