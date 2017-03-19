@@ -4,7 +4,6 @@
       <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
         <%= profile_img(user) %>
         <%= user.email %>
-        <%= render 'follow_form', user: user %>
         <%= link_to 'userページ', user_path(user.id) %>
         <% if user.id != current_user.id %>
           <li>
