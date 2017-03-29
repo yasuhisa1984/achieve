@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'dotenv-rails'
 gem 'unicorn'
+gem 'therubyracer', platforms: :ruby
 
 gem'annotate_models'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
