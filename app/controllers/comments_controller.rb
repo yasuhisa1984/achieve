@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:destroy]
+  before_action :set_comment, only: [:destroy, :update, :edit]
   # コメントを保存、投稿するためのアクションです。
   def create
     # ログインユーザーに紐付けてインスタンス生成するためbuildメソッドを使用します。
