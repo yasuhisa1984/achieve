@@ -37,7 +37,7 @@ Rails.application.configure do
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
-  config.action_mailer.default_url_options = { host: 'https://achieve1129.herokuapp.com/'}
+  config.action_mailer.default_url_options = { host: 'http://13.112.140.177/'}
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
