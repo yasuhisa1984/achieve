@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'therubyracer', platforms: :ruby
@@ -91,4 +92,3 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 gem 'carrierwave'
-gem 'rmagick'

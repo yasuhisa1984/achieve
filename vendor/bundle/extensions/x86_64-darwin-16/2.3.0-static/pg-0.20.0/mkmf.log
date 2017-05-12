@@ -1,0 +1,35 @@
+"clang -o conftest -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0/x86_64-darwin16 -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0/ruby/backward -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0 -I. -I/Users/penmouse275/.rbenv/versions/2.3.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/penmouse275/.rbenv/versions/2.3.0/lib -L. -L/Users/penmouse275/.rbenv/versions/2.3.0/lib  -fstack-protector     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -o conftest -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0/x86_64-darwin16 -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0/ruby/backward -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0 -I. -I/Users/penmouse275/.rbenv/versions/2.3.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/penmouse275/.rbenv/versions/2.3.0/lib -L. -L/Users/penmouse275/.rbenv/versions/2.3.0/lib  -fstack-protector     -lruby-static -framework CoreFoundation  -Wl,-rpath, -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+find_header: checking for libpq-fe.h... -------------------- no
+
+"clang -E -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0/x86_64-darwin16 -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0/ruby/backward -I/Users/penmouse275/.rbenv/versions/2.3.0/include/ruby-2.3.0 -I. -I/Users/penmouse275/.rbenv/versions/2.3.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: 'libpq-fe.h' file not found
+#include <libpq-fe.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libpq-fe.h>
+/* end */
+
+--------------------
+
